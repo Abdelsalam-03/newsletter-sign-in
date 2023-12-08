@@ -1,0 +1,224 @@
+*{
+    box-sizing: border-box;
+}
+:root{
+    --main-color:hsl(234, 29%, 20%);
+    --tomato-color:hsl(4, 100%, 67%);
+}
+body{
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+}
+.landing{
+    height: 100vh;
+    background-color: var(--main-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container{
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    background-color: white;
+    color: var(--main-color);
+    border-radius: 20px;
+    padding: 15px;
+    gap: 15px;
+}
+@media (max-width:768px) {
+    .landing{
+        background-color: white;
+    }
+    .form{
+        flex-direction: column-reverse;
+        padding: 0px;
+        border-radius: 0px;
+        height: 100%;
+        gap: 0px;
+    }
+}
+.success{
+    flex-direction: column;
+    padding: 40px;
+    max-width: 400px;
+    gap: 20px;
+    overflow: hidden;
+    display: none;
+}
+.success img{
+    width: 40px;
+}
+.success h1{
+    font-size: 40px;
+    margin: 0;
+}
+.success p{
+    font-size: 14px;
+    margin: 0;
+}
+.success button{
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.success button:hover{
+    box-shadow: 0px 12px 31px 0px hsl(4deg 100% 67% / 58%);
+    background-image: linear-gradient(to right, hsl(345.44deg 98.83% 66.47%), hsl(14.23deg 98.98% 61.57%));
+}
+@media (max-width:768px) {
+    .success{
+        height: 100%;
+        width: 100%;
+        position: relative;
+        padding-top: 150px;
+    }
+    .success button{
+        position: absolute;
+        bottom: 40px;
+        width: calc(100% - 80px);
+    }
+}
+.container .content{
+    padding: 30px;
+    max-width: 400px;
+}
+@media (max-width: 768px) {
+    .container .content{
+        width: 100%;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+.container .content h1{
+    font-weight: 700;
+    font-size: 40px;
+}
+.container .content ul{
+    padding: 0px;
+    list-style: none;
+}
+.container .content ul li{
+    font-size: 14px;
+    margin: 5px;
+    margin-left: 30px;
+    position: relative;
+}
+.container .content ul li::before{
+    content: "";
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    left: -30px;
+    top: 50%;
+    background-image: url(../images/icon-success.svg);
+    background-size: cover;
+    transform: translateY(-50%);
+}
+
+.container .content ul li:first-of-type{
+    margin-top: 20px;
+}
+
+.container .content form{
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0 0;
+}
+@media (max-width:768px) {
+    .container .content form{
+        flex: 1;
+        gap: 20px;
+        /* justify-content: space-around; */
+    }
+}
+.container .content form .text{
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.container .content form .error-message{
+    margin: 0 0 5px;
+    color: var(--tomato-color);
+    display: none;
+}
+.container .content form input{
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+}
+.container .content form input[type="text"]{
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    transition: 0.1s;
+}
+.container .content form input[type="text"]:focus{
+    border-color: var(--main-color);
+}
+.container .content form input[type="text"].error-state{
+    border: 1px solid var(--tomato-color);
+    background-color: hsl(4deg 100% 67% / 23%);
+}
+.container .content form input[type="text"].error-state::placeholder{
+    color: var(--tomato-color);
+}
+.container .content form input[type="submit"]{
+    color: white;
+    background-image: linear-gradient(to right, var(--main-color), var(--main-color));
+    cursor: pointer;
+    transition: 0.2s;
+}
+.container .content form input[type="submit"]:hover{
+    box-shadow: 0px 12px 31px 0px hsl(4deg 100% 67% / 58%);
+    background-image: linear-gradient(to right, hsl(345.44deg 98.83% 66.47%), hsl(14.23deg 98.98% 61.57%));
+}
+.image{
+    height: 100%;
+}
+.image .mobile{
+    display: none;
+}
+.image .desktop{
+    width: 300px;
+    height: 100%;
+}
+@media (max-width:768px) {
+    .image{
+        height: fit-content;
+    }
+    .image .mobile{
+        display: block;
+        width: 100%;
+    }
+    .image .desktop{
+        display: none;
+    }
+}
+.attribution{
+    position: absolute;
+    bottom: 10px;
+    text-align: center;
+    width: 100%;
+    color: white;
+}
+.attribution a{
+    color: var(--tomato-color);
+}
+@media (max-width:768px) {
+    .attribution{
+        bottom: 5px;
+        color: var(--main-color);
+    }
+}
